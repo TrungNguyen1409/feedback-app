@@ -4,8 +4,9 @@ import PropTypes from 'prop-types'
 function Header(props) {
   return (
     <header>
-        <div className="container"></div>
-        <h2>{props.text}</h2>
+        <div className="container">
+            <h2>{props.text}</h2>
+        </div>
     </header>
   )
 }
