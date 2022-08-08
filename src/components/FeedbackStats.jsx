@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 function FeedbackStats({feedback}) {
 
@@ -6,6 +7,8 @@ function FeedbackStats({feedback}) {
   let average = feedback.reduce((acc,cur)=>{
     return (acc + cur.rating)
   }, 0) / feedback.length
+
+  average = average.toFixed(1).replace(/[.,]0$/,'') // regex: if the nachkomma is zero delete it
 
   console.log(feedback)
   console.log(feedback.length)
@@ -20,6 +23,11 @@ function FeedbackStats({feedback}) {
     </div>
   )
 }
+
+FeedbackStats.propTypes = {
+  feedback: Prop
+}
+
 
 export default FeedbackStats
 
