@@ -1,3 +1,4 @@
+import {v4 as uuidv4} from 'uuid'
 import Header from "./components/Header"
 import FeedbackList from "./components/FeedbackList"
 import FeedbackData from "./data/FeedbackData"
@@ -18,12 +19,24 @@ function App(){
             setFeedback(feedback.filter((item) => item.id !== id)) // return items which doesnt have id 
         }
     }
+
+    const addFeedback = (newFeedback)=>{
+        newFeedback.id= uuidv4() // add id to it. There wasn't any id
+        
+        // this is very important:
+        /* 
+            basicall taking the new feedback and add it to the main array (which is FeedbackData)
+            this step must be executed here bc in App.js lies the main State
+        */
+        setFeedback([newFeedback, ...feedback])
+        console.log(newFeedback)
+    }
     return(
         <>
             <Header/>
             <div className="container">
                 <Button/>
-                <FeedbackForm/>
+                <FeedbackForm handleAdd={addFeedback} />
                 <FeedbackStats feedback={feedback}/>
                 <FeedbackList 
                 feedback={feedback} 
