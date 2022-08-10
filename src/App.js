@@ -6,7 +6,7 @@ import FeedbackData from "./data/FeedbackData"
 import FeedbackStats from "./components/FeedbackStats"
 import FeedbackForm from "./components/FeedbackForm"
 import AboutPage from './components/pages/AboutPage'
-import Button from "./components/shared/Button"
+import AboutIconLink from './components/AboutIconLink'
 import React from 'react'
 
 import {useState} from 'react'
@@ -43,6 +43,7 @@ function App(){
                         <FeedbackForm handleAdd={addFeedback} />
                         <FeedbackStats feedback={feedback}/>
                         <FeedbackList feedback={feedback} list_handleDelete = {deleteFeedback}/>
+                        <AboutIconLink />
                     </>
                 }>
                     
