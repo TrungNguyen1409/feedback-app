@@ -6,7 +6,7 @@ import FeedbackContext from '../context/FeedbackContext'
 
 
 
-function FeedbackList({ list_handleDelete}) {
+function FeedbackList() {
 
     const {feedback} = useContext(FeedbackContext)
 
@@ -26,7 +26,6 @@ return (<div className="feedback-list">
                 <FeedbackItem 
                     key={item.id} 
                     item = {item}
-                    item_handleDelete = { list_handleDelete}
                 />
             </motion.div>
             

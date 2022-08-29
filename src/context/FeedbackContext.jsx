@@ -14,8 +14,16 @@ export const FeedbackProvider = ({ children }) => {
         }
     ])
 
+    const deleteFeedback = (id,text,rating) =>{
+        console.log( 'App',id, text + rating)
+        if(window.confirm('Are you sure you want  to delete?')){
+            setFeedback(feedback.filter((item) => item.id !== id)) // return items which doesnt have id 
+        }
+    }
+
     return <FeedbackContext.Provider value={{
-        feedback,
+        feedback, 
+        deleteFeedback
     }}>
         {children}
     </FeedbackContext.Provider>

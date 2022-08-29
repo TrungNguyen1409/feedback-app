@@ -17,12 +17,7 @@ function App(){
     const [feedback, setFeedback] = useState(FeedbackData) // app level state
     
     // this function is here because the App.js is where we have the feedback
-    const deleteFeedback = (id,text,rating) =>{
-        console.log( 'App',id, text + rating)
-        if(window.confirm('Are you sure you want  to delete?')){
-            setFeedback(feedback.filter((item) => item.id !== id)) // return items which doesnt have id 
-        }
-    }
+    
 
     const addFeedback = (newFeedback)=>{
         newFeedback.id= uuidv4() // add id to it. There wasn't any id
@@ -45,7 +40,7 @@ function App(){
                     <>
                         <FeedbackForm handleAdd={addFeedback} />
                         <FeedbackStats />
-                        <FeedbackList list_handleDelete = {deleteFeedback}/>
+                        <FeedbackList  />
                         <AboutIconLink />
                     </>
                 }>
