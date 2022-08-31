@@ -27,15 +27,10 @@ function App(){
                         <AboutIconLink />
                     </>
                 }>
-                    
-                
                 </Route>
-                
                 <Route path='/post/*' element={<Post/>}/>
                 <Route path='/about' element={<AboutPage/>}/>
-
-            </Routes>
-                
+            </Routes>        
             </div>
         </Router>
         </FeedbackProvider>
