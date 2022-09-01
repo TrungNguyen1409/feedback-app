@@ -5,6 +5,8 @@ import {v4 as uuidv4} from 'uuid'
 const FeedbackContext = createContext()
 
 export const FeedbackProvider = ({ children }) => {
+    
+    const[isLoading, setIsLoading] = useState(true)
 
     const [feedback, setFeedback] = useState([])
     const [feedbackEdit, setFeedbackEdit] = useState({
@@ -19,7 +21,6 @@ export const FeedbackProvider = ({ children }) => {
 
     // Fetch feedback
     const fetchFeedback = async () =>{
-        const[isLoading, setIsLoading] = useState(true)
         const response = await fetch(`http://localhost:5000/feedback?_sort=id&:order=desc`)
         const data = await response.json()
 
